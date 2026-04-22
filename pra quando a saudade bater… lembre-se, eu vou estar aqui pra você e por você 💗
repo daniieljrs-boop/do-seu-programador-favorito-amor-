@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>para você 💗</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.3);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 400px;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 2s ease;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      color: #ff4e78;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255,255,255,0.7);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10vh); }
+      100% { transform: translateY(110vh); }
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+    <h1>oi, carol 💗</h1>
+
+    <p id="texto">
+      eu fiz isso aqui só pra você, carol...<br><br>
+      pra quando a saudade bater,<br>
+      você lembrar que eu tô com você, mesmo de longe.<br><br>
+      você é muito especial pra mim. 💗
+    </p>
+
+    <button onclick="mudarTexto()">clica aqui 💌</button>
+  </div>
+</div>
+
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function mudarTexto() {
+  document.getElementById("texto").innerHTML =
+  "carol...<br><br>" +
+  "eu não sei explicar direito o que eu sinto...<br><br>" +
+  "mas sei que é você que eu penso quando acordo,<br>" +
+  "e é você que eu sinto falta quando o dia termina.<br><br>" +
+  "se você abriu isso, é porque sentiu saudade...<br>" +
+  "e eu sinto a sua também. 💗";
+}
+
+function criarCoracao() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(criarCoracao, 300);
+</script>
+
+</body>
+</html>
